@@ -5,7 +5,7 @@ using Weather.Cli.Api;
 using Weather.Cli.Commands;
 
 [Command(Name = "weather", Description = "Weather Api")]
-[Subcommand(typeof(CurrentWeatherCommand))]
+[Subcommand(typeof(CurrentWeatherCommand), typeof(WeatherForecastCommand))]
 class Program : CommandBase
 {
     private readonly IConsole _console;
@@ -29,12 +29,12 @@ class Program : CommandBase
     {
         _console.ForegroundColor = ConsoleColor.Magenta;
         _console.WriteLine(@"
- __      __               __  .__                    _____         .__ 
-/  \    /  \ ____ _____ _/  |_|  |__   ___________  /  _  \ ______ |__|
-\   \/\/   // __ \\__  \\   __\  |  \_/ __ \_  __ \/  /_\  \\____ \|  |
- \        /\  ___/ / __ \|  | |   Y  \  ___/|  | \/    |    \  |_> >  |
-  \__/\  /  \___  >____  /__| |___|  /\___  >__|  \____|__  /   __/|__|
-       \/       \/     \/          \/     \/              \/|__|       
+ __      __               __  .__                  _________ .____    .___ 
+/  \    /  \ ____ _____ _/  |_|  |__   ___________ \_   ___ \|    |   |   |
+\   \/\/   // __ \\__  \\   __\  |  \_/ __ \_  __ \/    \  \/|    |   |   |
+ \        /\  ___/ / __ \|  | |   Y  \  ___/|  | \/\     \___|    |___|   |
+  \__/\  /  \___  >____  /__| |___|  /\___  >__|    \______  /_______ \___|
+       \/       \/     \/          \/     \/               \/        \/    
 ");
         _console.ResetColor();
         return base.OnExecute(app);

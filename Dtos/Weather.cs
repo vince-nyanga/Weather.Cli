@@ -17,4 +17,9 @@ public record WeatherDto
             Maximum = unit == WeatherUnit.Metric ? response.Maximum : (response.Maximum * (9 / 5)) + 32
         };
     }
+
+    public override string ToString()
+    {
+        return $"{Minimum}\t{Maximum}";
+    }
 }
